@@ -20,11 +20,14 @@ export default class Edit extends Component {
   }
 
   updatePost() {
-
+    const { text } = this.state;
+    const { id, updatePostFn, hideEdit } = this.props;
+  
+    updatePostFn( id, text );
+    hideEdit();
   }
-
   render() {
-    // More destructuring!
+  
     const { hideEdit } = this.props;
     const { text } = this.state;
 
@@ -35,15 +38,15 @@ export default class Edit extends Component {
         <textarea className="Edit__textarea" value={ text } onChange={ ( e ) => this.updateText( e.target.value ) }></textarea>
 
         <div className="Edit__controls">
-          {/* This saves your changes made */}
+       
           <button id="Edit__controls-update" 
                   className="Edit__control-btn"
                   onClick={ this.updatePost }>
             Update
           </button>
 
-          {/* This cancels the edit mode and does not save changes. Remember the "hideEdit" method was passed down through props */}
-          <button id="Edit__controsl-cancel"
+
+          <button id="Edit__control-cancel"
                   className="Edit__control-btn"
                   onClick={ hideEdit }>
             Cancel
