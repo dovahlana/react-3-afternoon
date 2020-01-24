@@ -7,7 +7,7 @@ import Header from './Header/Header';
 import Compose from './Compose/Compose';
 import Post from './Post/Post';
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
 
@@ -72,4 +72,3 @@ class App extends Component {
   }
 }
 
-export default App;
