@@ -55,7 +55,7 @@ render() {
 
         <div className="Post__master-menu" style={ { display: showMasterMenu ? 'flex' : 'none' } }>
   <span onClick={ this.showEdit }>Edit</span>
-  <span onClick={ () => this.deletePost(this.id) }>Delete</span> 
+  <span onClick={ () => this.props.deletePostFn(this.props.id) }>Delete</span> 
 </div>
 
       <div className="Post__meta-data">
@@ -75,9 +75,9 @@ render() {
     editing
     ?
       <Edit text={ text }
-            id={ this.id } 
+            id={ this.props.id } 
             hideEdit={ this.hideEdit }
-            updatePostFn={ this.updatePost } />
+            updatePostFn={ this.props.updatePostFn } />
     :
       <span className="Post__text">{ text }</span>
   }
